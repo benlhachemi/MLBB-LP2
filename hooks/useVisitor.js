@@ -5,25 +5,29 @@ import Axios                 from 'axios'
 const useVisitor = () => {
     //variables & hooks
     const [loading, setLoading] = useState(true)
+    const [allowed, setAllowed] = useState(false)
     const [lang, setLang]       = useState(typeof window !== "undefined" ? window.navigator.language : false)
 
     //functions
-    /*const fetch_data = async()=>{
+    const fetch_data = async()=>{
         await Axios({
-            method: 'GET',
-            url: '/api/hello'
-        }).then(res => setVisitor(res.data))
-    }*/
+            method: 'get',
+            url: '/api/validation'
+        }).then(res => {
+            setLoading(false)
+            if(!res.data) return 0
+            if(res.data.host.includes('localhost')) setAllowed(true)
+        })
+    }
 
     //useEffect
     useEffect(() => {
         setLang(window.navigator.language)
-        setLoading(false)
-        //fetch_data()
+        fetch_data()
     }, [])
 
     //main return
-    return [lang, loading]
+    return [lang, loading, allowed]
 }
 
 export default useVisitor

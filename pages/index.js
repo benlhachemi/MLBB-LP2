@@ -8,7 +8,7 @@ import Stepper               from'../components/stepper'
 
 export default function Home() {
 	//useStates
-	const [lang, loading] = useVisitor()
+	const [lang, loading, allowed] = useVisitor()
 
 	//main render
 	return (
@@ -31,7 +31,9 @@ export default function Home() {
 
 				{/* S T E P P E R */}
 				<main className="relative py-3 px-3 cssanimation blurInTop [animation-delay:0.8s] w-5/6 md:w-2/6 bg-black border-[1px] bg-opacity-50 backdrop-blur-sm shadow-lg border-white mx-auto rounded-lg text-white text-center">
-					{loading ? <Loading /> : <Stepper lang={lang}/>}
+					{loading ? <Loading /> : 
+					!allowed ? <h1>GO TO : www.diamonds-legends.com</h1> :
+					<Stepper lang={lang}/>}
 				</main>
 			</main>
 		</div>
