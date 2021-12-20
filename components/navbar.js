@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome'
 import { faBars }            from '@fortawesome/free-solid-svg-icons'
 import { faTimes }           from '@fortawesome/free-solid-svg-icons'
+import Link                  from 'next/link'
 
 const Navbar = ({active}) => {
     //huseStates Hooks
@@ -21,26 +22,26 @@ const Navbar = ({active}) => {
             {isMobile ?
             !showMenu ? 
             <div className='py-1'>
-                <FontAwesomeIcon onClick={e => setShowMenu(true)} icon={faBars} width={50}/>
+                <FontAwesomeIcon onClick={e => setShowMenu(true)} icon={faBars} width={30}/>
             </div>
             :
             <>
-                <FontAwesomeIcon onClick={e => setShowMenu(false)} icon={faTimes} width={50}/>
+                <FontAwesomeIcon onClick={e => setShowMenu(false)} icon={faTimes} width={30}/>
                 <ul>
-                    <li href='/' className={`cursor-pointer py-3 my-3 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
-                    <li href='/terms-of-use' className={`cursor-pointer py-3 my-3 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
-                    <li href='/contact-us' className={`cursor-pointer py-3 my-3 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
-                    <li href='/privacy-policy' className={`cursor-pointer py-3 my-3 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
-                    <li href='/disclaimer' className={`cursor-pointer py-3 my-3 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
+                    <Link href='/'><li className={`cursor-pointer py-3 my-3 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.1s]`}>HOME</li></Link>
+                    <Link href='/terms-of-use'><li className={`cursor-pointer py-3 my-3 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.2s]`}>TERMS OF USE</li></Link>
+                    <Link href='/contact-us'><li className={`cursor-pointer py-3 my-3 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.3s]`}>CONTACT US</li></Link>
+                    <Link href='/privacy-policy'><li className={`cursor-pointer py-3 my-3 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.4s]`}>PRIVACY POLICY</li></Link>
+                    <Link href='/disclaimer'><li className={`cursor-pointer py-3 my-3 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.5s]`}>DISCLAIMER</li></Link>
                 </ul>
             </>
             :
             <ul className='flex'>
-                <li href='/' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
-                <li href='/terms-of-use' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
-                <li href='/contact-us' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
-                <li href='/privacy-policy' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
-                <li href='/disclaimer' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
+                <Link href='/'><li className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.1s]`}>HOME</li></Link>
+                <Link href='/terms-of-use'><li className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.2s]`}>TERMS OF USE</li></Link>
+                <Link href='/contact-us'><li className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.3s]`}>CONTACT US</li></Link>
+                <Link href='/privacy-policy'><li className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.4s]`}>PRIVACY POLICY</li></Link>
+                <Link href='/disclaimer'><li className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.5s]`}>DISCLAIMER</li></Link>
             </ul>
             }
         </nav>
