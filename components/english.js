@@ -150,32 +150,32 @@ const English = () => {
                     <h1 className="py-2 text-xl font-bold">Choose the amount of diamonds you wanna get for <span className="font-bold text-blue-200">{user}</span></h1>
                     <div className="grid grid-cols-2 py-3 px-10 flex-1 text-center justify-center align-middle">
 
-                        <div onClick={e => setDiamonds(100)} className={`${diamonds == 100 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(100)} className={`${diamonds == 100 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>100 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>
 
-                        <div onClick={e => setDiamonds(200)} className={`${diamonds == 200 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(200)} className={`${diamonds == 200 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>200 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>
 
-                        <div onClick={e => setDiamonds(500)} className={`${diamonds == 500 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(500)} className={`${diamonds == 500 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>500 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>
 
-                        <div onClick={e => setDiamonds(1000)} className={`${diamonds == 1000 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(1000)} className={`${diamonds == 1000 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>1000 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>
 
-                        <div onClick={e => setDiamonds(1999)} className={`${diamonds == 1999 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(1999)} className={`${diamonds == 1999 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>1999 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>
 
-                        <div onClick={e => setDiamonds(2500)} className={`${diamonds == 2500 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-2 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
+                        <div onClick={e => setDiamonds(2500)} className={`${diamonds == 2500 && 'bg-white text-gray-500 border-gray-500'} cursor-pointer my-2 align-text-bottomcursor-pointer border-2 mx-1 py-2 px-3 rounded-lg hover:bg-white hover:text-gray-500 hover:border-gray-500 active:bg-white active:text-gray-500 active:border-gray-500`}>
                             <div>2500 Diamonds</div>
                             <center><img src="/images/gems.png" className='w-8 justify-center align-middle' alt="mobile legends diamonds icon" /></center>
                         </div>

@@ -27,20 +27,20 @@ const Navbar = ({active}) => {
             <>
                 <FontAwesomeIcon onClick={e => setShowMenu(false)} icon={faTimes} width={50}/>
                 <ul>
-                    <li className={`py-3 my-3 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
-                    <li className={`py-3 my-3 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
-                    <li className={`py-3 my-3 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
-                    <li className={`py-3 my-3 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
-                    <li className={`py-3 my-3 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
+                    <li href='/' className={`cursor-pointer py-3 my-3 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
+                    <li href='/terms-of-use' className={`cursor-pointer py-3 my-3 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
+                    <li href='/contact-us' className={`cursor-pointer py-3 my-3 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
+                    <li href='/privacy-policy' className={`cursor-pointer py-3 my-3 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
+                    <li href='/disclaimer' className={`cursor-pointer py-3 my-3 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
                 </ul>
             </>
             :
             <ul className='flex'>
-                <li className={`py-2 mx-3 px-4 my-2 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
-                <li className={`py-2 mx-3 px-4 my-2 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
-                <li className={`py-2 mx-3 px-4 my-2 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
-                <li className={`py-2 mx-3 px-4 my-2 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
-                <li className={`py-2 mx-3 px-4 my-2 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
+                <li href='/' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
+                <li href='/terms-of-use' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
+                <li href='/contact-us' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 3 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.3s]`}><a href="/contact-us">CONTACT US</a></li>
+                <li href='/privacy-policy' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 4 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.4s]`}><a href="/privacy-policy">PRIVACY POLICY</a></li>
+                <li href='/disclaimer' className={`cursor-pointer py-2 mx-3 px-4 my-2 ${active == 5 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle cssanimation pushReleaseFrom [animation-delay:0.5s]`}><a href="/disclaimer">DISCLAIMER</a></li>
             </ul>
             }
         </nav>
