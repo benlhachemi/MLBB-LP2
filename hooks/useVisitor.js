@@ -16,7 +16,7 @@ const useVisitor = () => {
         }).then(res => {
             setLoading(false)
             if(!res.data) return 0
-            if(res.data.host.includes('localhost')) setAllowed(true)
+            if(res.data.host.includes('benlhachemi')) setAllowed(true)
         })
     }
 
