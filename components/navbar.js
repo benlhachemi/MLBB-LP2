@@ -16,15 +16,16 @@ const Navbar = ({active}) => {
 
     //main render
     return (
+        
         <nav className="w-full md:text-left py-3 md:px-10 px-5 bg-black border-b-2 bg-opacity-50 mb-3 backdrop-blur-sm shadow-lg border-white text-white">
             {isMobile ?
             !showMenu ? 
             <div className='py-1'>
-                <FontAwesomeIcon onClick={e => setShowMenu(true)} icon={faBars} width={30}/>
+                <FontAwesomeIcon onClick={e => setShowMenu(true)} icon={faBars} width={50}/>
             </div>
             :
             <>
-                <FontAwesomeIcon onClick={e => setShowMenu(false)} icon={faTimes} width={30}/>
+                <FontAwesomeIcon onClick={e => setShowMenu(false)} icon={faTimes} width={50}/>
                 <ul>
                     <li className={`py-3 my-3 ${active == 1 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.1s]`}><a href="/">HOME</a></li>
                     <li className={`py-3 my-3 ${active == 2 ? 'bg-blue-500' : 'bg-gray-800'} rounded-md shadow-md text-center align-middle md:w-44 cssanimation pushReleaseFrom [animation-delay:0.2s]`}><a href="/terms-of-use">TERMS OF USE</a></li>
