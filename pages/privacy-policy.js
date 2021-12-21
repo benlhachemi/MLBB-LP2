@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
 				<Navbar active={4}/>
 
 				{/* L O G O */}
-				<img src="/images/mobile-legends-diamonds-legends-logo.png" alt="Free Diamonds for all mobile legends gamers" className='cssanimation pushReleaseFrom [animation-delay:0.2s] mx-auto md:w-96 mb-10 sm:w-72 w-84'/>
+				<img src="https://i.imgur.com/cNNizpw.png" alt="Free Diamonds for all mobile legends gamers" className='cssanimation pushReleaseFrom [animation-delay:0.2s] mx-auto md:w-96 mb-10 sm:w-72 w-84'/>
 
 				{/* M A I N */}
 				<main className="px-5 cssanimation blurInTop [animation-delay:0.8s] w-5/6 bg-black border-[1px] bg-opacity-50 backdrop-blur-sm shadow-lg border-white mx-auto rounded-lg text-white text-center py-5">
