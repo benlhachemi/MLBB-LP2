@@ -205,7 +205,7 @@ const English = () => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://google.com'}>Confirm <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://verifyspot.net/cl/i/3759ww'}>Confirm <CheckIcon /></button>
 
 
             </div>

@@ -205,7 +205,7 @@ const Indonesia = () => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://google.com'}>Mengonfirmasi <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://clickfam.com/cl/i/klpwq8'}>Mengonfirmasi <CheckIcon /></button>
 
 
             </div>
