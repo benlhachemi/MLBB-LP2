@@ -5,10 +5,18 @@ import useVisitor            from '../hooks/useVisitor'
 import {useState, useEffect} from 'react'
 import Loading               from'../components/loading'
 import Stepper               from'../components/stepper'
+import ReactGA               from 'react-ga'
 
 export default function Home() {
 	//useStates
 	const [lang, loading, allowed] = useVisitor()
+
+	//useEffect
+	useEffect(() => {
+		//variables & defines for GA
+		ReactGA.initialize('UA-197849444-9')
+		ReactGA.pageview(window.location.pathname + window.location.search)
+	}, [])
 
 	//main render
 	return (
