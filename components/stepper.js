@@ -2,12 +2,12 @@
 import English   from './english'
 import Indonesia from './indonesia'
 
-const Stepper = ({lang}) => {
+const Stepper = ({lang, actions}) => {
 
     //main render
     return (
         <div>
-            {lang.slice(0,2) == 'id' ? <Indonesia /> : <English />}
+            {lang.slice(0,2) == 'id' ? <Indonesia actions={actions} /> : <English actions={actions} />}
         </div>
     )
 }

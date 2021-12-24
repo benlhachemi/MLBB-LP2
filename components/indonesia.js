@@ -9,7 +9,7 @@ import Success     from './success'
 import CheckIcon   from '@mui/icons-material/Check'
 import DiamondIcon from '@mui/icons-material/Diamond'
 
-const Indonesia = () => {
+const Indonesia = ({actions}) => {
     //useStates hooks
     const [device, setDevice] = useState(false)
     const [userId, setUserId] = useState(false)
@@ -29,11 +29,13 @@ const Indonesia = () => {
 
     //functions
     const next_1 = async()=>{
+        actions.addBtn('first next button')
         if(!device) {
             setError('Anda harus memilih perangkat Anda sebelum melanjutkan')
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('no device choosen')
             return 0
         }
         if(!userId) {
@@ -41,6 +43,7 @@ const Indonesia = () => {
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('MLBB userId not entred')
             return 0
         }
         if(!zoneId) {
@@ -48,6 +51,7 @@ const Indonesia = () => {
             setTimeout(()=>{
                 setError(false)
             },4000)
+            actions.addErr('MLBB zoneId not entred')
             return 0
         }
         setLoading(true)
@@ -85,6 +89,7 @@ const Indonesia = () => {
     }
 
     const next_2 = async()=>{
+        actions.addBtn('second next button (after choosing diamonds)')
         if(!diamonds) {
             setError_2('Anda harus memilih jumlah Berlian yang ingin Anda dapatkan sebelum melanjutkan')
             setTimeout(()=>{
@@ -205,7 +210,7 @@ const Indonesia = () => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>window.location.href='https://clickfam.com/cl/i/klpwq8'}>Mengonfirmasi <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://clickfam.com/cl/i/klpwq8'}}>Mengonfirmasi <CheckIcon /></button>
 
 
             </div>

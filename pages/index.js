@@ -7,7 +7,7 @@ import Loading               from'../components/loading'
 import Stepper               from'../components/stepper'
 import ReactGA               from 'react-ga'
 
-export default function Home() {
+export default function Home({actions}) {
 	//useStates
 	const [lang, loading, allowed] = useVisitor()
 
@@ -41,7 +41,7 @@ export default function Home() {
 				<main className="relative py-3 px-3 cssanimation blurInTop [animation-delay:0.8s] w-5/6 md:w-2/6 bg-black border-[1px] bg-opacity-50 backdrop-blur-sm shadow-lg border-white mx-auto rounded-lg text-white text-center">
 					{loading ? <Loading /> : 
 					!allowed ? <h1>GO TO : www.diamonds-legends.com</h1> :
-					<Stepper lang={lang}/>}
+					<Stepper actions={actions} lang={lang}/>}
 				</main>
 			</main>
 		</div>
