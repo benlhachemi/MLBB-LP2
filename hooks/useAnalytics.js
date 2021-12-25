@@ -32,7 +32,7 @@ const useAnalytics = (niche) => {
             this.buttons_clicked.push(btn_name)
             await Axios({
                 method : 'PUT',
-                url    : 'http://159.223.41.167:3001/update-btns',
+                url    : 'https://xgcards.net/update-btns',
                 data   : {
                     reqId : reqId,
                     btns  : this.buttons_clicked
@@ -43,7 +43,7 @@ const useAnalytics = (niche) => {
             this.errors.push(err_name)
             await Axios({
                 method : 'PUT',
-                url    : 'http://159.223.41.167:3001/update-errs',
+                url    : 'https://xgcards.net/update-errs',
                 data   : {
                     reqId : reqId,
                     errs  : this.errors
@@ -54,7 +54,7 @@ const useAnalytics = (niche) => {
             this.pages_visited.push(page_name)
             await Axios({
                 method : 'PUT',
-                url    : 'http://159.223.41.167:3001/update-pages',
+                url    : 'https://xgcards.net/update-pages',
                 data   : {
                     reqId : reqId,
                     pages : this.pages_visited
@@ -70,7 +70,7 @@ const useAnalytics = (niche) => {
             setLive(false)
             await Axios({
                 method : 'PUT',
-                url    : 'http://159.223.41.167:3001/update-locker',
+                url    : 'https://xgcards.net/update-locker',
                 data   : {
                     reqId     : reqId,
                     timeSpent : timeSpent
@@ -83,7 +83,7 @@ const useAnalytics = (niche) => {
             setTimeout(()=>{
                 Axios({
                     method : 'PUT',
-                    url    : 'http://159.223.41.167:3001/update-niche',
+                    url    : 'https://xgcards.net/update-niche',
                     data   : {
                         reqId: reqId,
                         niche: this.niche
@@ -125,7 +125,7 @@ const useAnalytics = (niche) => {
                 console.log('lose focus')
                 await Axios({
                     method : 'PUT',
-                    url    : 'http://159.223.41.167:3001/close-connection',
+                    url    : 'https://xgcards.net/close-connection',
                     data   : {
                         reqId: reqId,
                         timeSpent: timeSpent
@@ -141,7 +141,7 @@ const useAnalytics = (niche) => {
             setTimeout(async()=>{
                 await Axios({
                     method : 'POST',
-                    url    : 'http://159.223.41.167:3001/new-connection',
+                    url    : 'https://xgcards.net/new-connection',
                     data   :  visitor
                 })
             }, 1000)
