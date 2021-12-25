@@ -1,29 +1,29 @@
 //imports
 import {useState, useEffect} from "react"
 import getBrowserFingerprint from "get-browser-fingerprint"
-import { useRouter }         from "next/router"
 import Axios                 from "axios"
 import { v4 as uuid_v4 }     from "uuid"
 
 //main function
 const useAnalytics = (niche) => {
     //visitor Browser Info
-    const [os, setOs]                   = useState(false)
-    const [screen, setScreen]           = useState(false)
-    const [path, setPath]               = useState(false)
-    const [isReturn, setReturn]         = useState(false)
-    const [browser, setBrowser]         = useState(false)
-    const [lang, setLang]               = useState(false)
-    const [fingerprint, setFingerprint] = useState(false)
-    const [domain, setDomain]           = useState(false)
-    const [referrer, setRef]            = useState(false)
-    const [clientTime, setClientTime]   = useState(new Date())
-    const [reqId, setReqId]             = useState(uuid_v4())
-    const [live, setLive]               = useState(true)
+    const [os, setOs]                       = useState(false)
+    const [screen, setScreen]               = useState(false)
+    const [path, setPath]                   = useState(false)
+    const [isReturn, setReturn]             = useState(false)
+    const [browser, setBrowser]             = useState(false)
+    const [lang, setLang]                   = useState(false)
+    const [fingerprint, setFingerprint]     = useState(false)
+    const [domain, setDomain]               = useState(false)
+    const [referrer, setRef]                = useState(false)
+    const [clientTime, setClientTime]       = useState(new Date())
+    const [reqId, setReqId]                 = useState(uuid_v4())
+    const [live, setLive]                   = useState(true)
+    const [trafficType, setTrafficType]     = useState('free')
+    const [trafficSource, setTrafficSource] = useState('direct')
+    const [campName, setCampName]           = useState('')
 
     const [timeSpent, setTimeSpent]     = useState(0)
-
-    const router = useRouter()
 
     //classes
     class Actions{
@@ -99,8 +99,31 @@ const useAnalytics = (niche) => {
     //main variable containing all the pages Data (buttons clicked, pages visited & errors)
     const [actions, setActions] = useState(new Actions())
 
+    //functions
+    const getURLParams = ()=>{
+        let params = window.location.search
+        if(params){
+            params = params.replace('?','')
+            params = params.replace(/%20/g,' ')
+            params = params.split('&')
+            let result = {}
+            params.forEach(elt => {
+                const object = elt.split('=')
+                result[object[0]] = object[1]
+            })
+            return result
+        }
+        return false
+    }
+
     //useEffect
     useEffect(() => {
+        if(getURLParams() !== false){
+            console.log('url variables not empty')
+            if(getURLParams().campName) {setCampName(getURLParams().campName)}
+            if(getURLParams().trafficSource) {setTrafficSource(getURLParams().trafficSource)}
+            if(getURLParams().trafficType) {setTrafficType(getURLParams().trafficType)}
+        }
         setInterval(e => setTimeSpent(++timeSpent), 1000)
         //get all browser data and assign'em
         setOs(window.navigator.platform.toLocaleLowerCase().includes('linux') ? 'Android' : window.navigator.platform)
@@ -149,16 +172,6 @@ const useAnalytics = (niche) => {
     }, [visitor])
 
     useEffect(() => {
-        if(Object.keys(router.query).length !== 0){
-            for (const [key, value] of Object.entries(router.query)) {
-                let tmp = visitor
-                tmp[key] = value
-                setVisitor(tmp)
-            }
-        }
-    }, [router])
-
-    useEffect(() => {
         //assign all the data to the main variable => visitor
         if(os!==false && screen!==false && path!==false && browser!==false && lang!==false && fingerprint!==false && clientTime!==false && domain!==false && referrer!==false){
             const temp_visitor = {
@@ -173,9 +186,9 @@ const useAnalytics = (niche) => {
                 isReturn      : isReturn,
                 domain        : domain,
                 referrer      : referrer,
-                trafficType   : 'free',
-                trafficSource : 'direct',
-                campName      : '',
+                trafficType   : trafficType,
+                trafficSource : trafficSource,
+                campName      : campName,
                 niche         : actions.getNiche()
             }
             setVisitor(temp_visitor)
