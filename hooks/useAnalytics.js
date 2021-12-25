@@ -32,7 +32,7 @@ const useAnalytics = (niche) => {
             this.buttons_clicked.push(btn_name)
             await Axios({
                 method : 'PUT',
-                url    : 'https://xgcards.net/update-btns',
+                url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-btns',
                 data   : {
                     reqId : reqId,
                     btns  : this.buttons_clicked
@@ -43,7 +43,7 @@ const useAnalytics = (niche) => {
             this.errors.push(err_name)
             await Axios({
                 method : 'PUT',
-                url    : 'https://xgcards.net/update-errs',
+                url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-errs',
                 data   : {
                     reqId : reqId,
                     errs  : this.errors
@@ -54,7 +54,7 @@ const useAnalytics = (niche) => {
             this.pages_visited.push(page_name)
             await Axios({
                 method : 'PUT',
-                url    : 'https://xgcards.net/update-pages',
+                url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-pages',
                 data   : {
                     reqId : reqId,
                     pages : this.pages_visited
@@ -70,7 +70,7 @@ const useAnalytics = (niche) => {
             setLive(false)
             await Axios({
                 method : 'PUT',
-                url    : 'https://xgcards.net/update-locker',
+                url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-locker',
                 data   : {
                     reqId     : reqId,
                     timeSpent : timeSpent
@@ -83,7 +83,7 @@ const useAnalytics = (niche) => {
             setTimeout(()=>{
                 Axios({
                     method : 'PUT',
-                    url    : 'https://xgcards.net/update-niche',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-niche',
                     data   : {
                         reqId: reqId,
                         niche: this.niche
@@ -125,7 +125,7 @@ const useAnalytics = (niche) => {
                 console.log('lose focus')
                 await Axios({
                     method : 'PUT',
-                    url    : 'https://xgcards.net/close-connection',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/close-connection',
                     data   : {
                         reqId: reqId,
                         timeSpent: timeSpent
@@ -141,7 +141,7 @@ const useAnalytics = (niche) => {
             setTimeout(async()=>{
                 await Axios({
                     method : 'POST',
-                    url    : 'https://xgcards.net/new-connection',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/new-connection',
                     data   :  visitor
                 })
             }, 1000)
