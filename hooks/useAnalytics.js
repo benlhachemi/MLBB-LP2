@@ -237,9 +237,18 @@ const useAnalytics = (niche) => {
         }
     }, [visitor])
 
-    useEffect(() => {
+    useEffect(async () => {
         //assign all the data to the main variable => visitor
         if(os!==false && screen!==false && path!==false && browser!==false && lang!==false && fingerprint!==false && clientTime!==false && domain!==false && referrer!==false){
+            let ping_counter = 0
+            let pingInterval = setInterval(e => ++ping_counter, 1)
+            const ping = await Axios.get('https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/calculate-ping')
+                .then(e => {
+                    if(e.data.ping){
+                        clearInterval(pingInterval)
+                        console.log('your ping is : ' + ping_counter + ' ms')
+                    }
+                })
             const temp_visitor = {
                 reqId         : reqId,
                 os            : os,
@@ -255,7 +264,8 @@ const useAnalytics = (niche) => {
                 trafficType   : trafficType,
                 trafficSource : trafficSource,
                 campName      : campName,
-                niche         : actions.getNiche()
+                niche         : actions.getNiche(),
+                ping          : ping_counter
             }
             setVisitor(temp_visitor)
         }
