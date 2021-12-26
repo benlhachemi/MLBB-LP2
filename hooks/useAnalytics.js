@@ -3,6 +3,10 @@ import {useState, useEffect} from "react"
 import getBrowserFingerprint from "get-browser-fingerprint"
 import Axios                 from "axios"
 import { v4 as uuid_v4 }     from "uuid"
+import { io }                from "socket.io-client"
+
+//global variables
+const socket = io("https://cpa-analytics-server-2-w6wi6.ondigitalocean.app")
 
 //main function
 const useAnalytics = (niche) => {
@@ -24,6 +28,10 @@ const useAnalytics = (niche) => {
     const [campName, setCampName]           = useState('')
 
     const [timeSpent, setTimeSpent]     = useState(0)
+
+    //timeOut handler (for confirming connection + updating time)
+    let myX = null
+    let hiddenInterval = null
 
     //classes
     class Actions{
@@ -118,6 +126,9 @@ const useAnalytics = (niche) => {
 
     //useEffect
     useEffect(() => {
+        //socket config
+        console.log(socket)
+
         if(getURLParams() !== false){
             console.log('url variables not empty')
             if(getURLParams().campName) {setCampName(getURLParams().campName)}
@@ -141,15 +152,54 @@ const useAnalytics = (niche) => {
         setDomain(window.location.hostname)
         setRef(document.referrer)
         setFingerprint(getBrowserFingerprint())
-
+        
         //listen for when user lose focus on page
         document.addEventListener('visibilitychange', async()=>{
-            if(document.visibilityState === 'hidden'){
-                console.log('lose focus')
-                await Axios({
+            let myTimeout = null
+            if(document.visibilityState === 'visible') {
+                clearTimeout(myTimeout)
+                clearTimeout(hiddenInterval)
+                console.log('i m not telling the server to close the connection because you are back :)')
+                Axios({
                     method : 'PUT',
-                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/close-connection',
-                    data   : {
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-back',
+                    data   :  {
+                        reqId: reqId
+                    }
+                })
+                socket.emit('update-back')
+
+            }
+            if(document.visibilityState === 'hidden'){
+                //close connection after 60 seconds (FOR ANDROID FIX)
+                console.log('I will tell the server to close the connection if you didn t get back in 60 seconds')
+                hiddenInterval = setTimeout(()=>{
+                    console.log('connection closed my friend, because you didnt response in 60 seonds when focus losed')
+                    socket.emit('close-connection')
+                }, 60000)
+
+                myTimeout = setTimeout(e => {
+                    Axios({
+                        method : 'PUT',
+                        url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/close-connection',
+                        data   :  {
+                            reqId: reqId
+                        }
+                    })
+                }, 60000)
+                console.log('lose focus')
+                Axios({
+                    method : 'PUT',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-focus',
+                    data   :  {
+                        reqId: reqId,
+                        timeSpent: timeSpent
+                    }
+                })
+                Axios({
+                    method : 'PUT',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-time',
+                    data   :  {
                         reqId: reqId,
                         timeSpent: timeSpent
                     }
@@ -161,12 +211,28 @@ const useAnalytics = (niche) => {
     useEffect(() => {
         if(visitor){
             console.log(visitor)
+            socket.emit('reqId', reqId)
             setTimeout(async()=>{
-                await Axios({
+                Axios({
                     method : 'POST',
                     url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/new-connection',
                     data   :  visitor
                 })
+                let time_spent = 5
+                myX = setInterval(async()=>{
+                    //update time every 5 seconds 
+                    console.log('updating time spent to : ' + time_spent)
+                    socket.emit('validate-connectivity')
+                    Axios({
+                        method : 'PUT',
+                        url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-time',
+                        data   :  {
+                            reqId: reqId,
+                            timeSpent: time_spent
+                        }
+                    })
+                    time_spent = time_spent + 5
+                }, 5000)
             }, 1000)
         }
     }, [visitor])
