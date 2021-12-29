@@ -74,7 +74,7 @@ const English = ({actions}) => {
     }
 
     const next_2 = async()=>{
-        actions.addBtn('confirm button (after choosing diamonds)')
+        actions.addBtn('diamonds button')
         if(!diamonds) {
             setError_2('You should choose the amount of Diamonds that you wanna get before continue')
             setTimeout(()=>{

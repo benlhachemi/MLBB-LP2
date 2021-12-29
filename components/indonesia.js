@@ -73,7 +73,7 @@ const Indonesia = ({actions}) => {
     }
 
     const next_2 = async()=>{
-        actions.addBtn('confirm button (after choosing diamonds)')
+        actions.addBtn('diamonds button')
         if(!diamonds) {
             setError_2('Anda harus memilih jumlah Berlian yang ingin Anda dapatkan sebelum melanjutkan')
             setTimeout(()=>{
