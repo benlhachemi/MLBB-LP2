@@ -1,7 +1,7 @@
 //imports
 import AndroidIcon from '@mui/icons-material/Android'
 import AppleIcon   from '@mui/icons-material/Apple'
-import {useState}  from 'react'
+import {useState, useEffect}  from 'react'
 import Error       from './error'
 import Axios       from 'axios'
 import Fetching    from './fetching'
@@ -30,28 +30,12 @@ const English = ({actions}) => {
     //functions
     const next_1 = async()=>{
         actions.addBtn('first next button')
-        if(!device) {
-            setError('You should choose your device before continue')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('no device choosen')
-            return 0
-        }
-        if(!userId) {
-            setError('You should enter your user ID before continue (you can find it in the settings of your mobile legends account)')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('MLBB userId not entred')
-            return 0
-        }
-        if(!zoneId) {
-            setError('You should choose your server ID before continue (you can find it in the settings of your mobile legends account)')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('MLBB zoneId not entred')
+        if(!device) setDevice('Android')
+
+        if(!userId || !zoneId) {
+            setUser('Mobile Legends')
+            setStep_1(false)
+            setStep_2(true)
             return 0
         }
         setLoading(true)
@@ -90,7 +74,7 @@ const English = ({actions}) => {
     }
 
     const next_2 = async()=>{
-        actions.addBtn('second next button (after choosing diamonds)')
+        actions.addBtn('confirm button (after choosing diamonds)')
         if(!diamonds) {
             setError_2('You should choose the amount of Diamonds that you wanna get before continue')
             setTimeout(()=>{
@@ -109,7 +93,7 @@ const English = ({actions}) => {
             <h1 className="justify-center mb-3 text-lg font-bold">Free Mobile Legends Diamonds Generator</h1>
 
             {/* S T E P   1 */}
-            {success ? <Success msg={success} setStep_1={setStep_1} setStep_2={setStep_2} setSuccess={setSuccess} question={`is ${user} the correct username of your account ?`} yes={'Yes'} no={'No'}/> : 
+            {success ? <Success actions={actions} msg={success} setStep_1={setStep_1} setStep_2={setStep_2} setSuccess={setSuccess} question={`is ${user} the correct username of your account ?`} yes={'Yes'} no={'No'}/> : 
             loading ? <Fetching msg={'Looking for your Mobile Legends Username on the Server ...'} /> : 
             error ? <Error msg={error}/> : 
             step_1 &&

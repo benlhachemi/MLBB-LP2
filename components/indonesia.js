@@ -30,28 +30,12 @@ const Indonesia = ({actions}) => {
     //functions
     const next_1 = async()=>{
         actions.addBtn('first next button')
-        if(!device) {
-            setError('Anda harus memilih perangkat Anda sebelum melanjutkan')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('no device choosen')
-            return 0
-        }
-        if(!userId) {
-            setError('Anda harus memasukkan ID pengguna Anda sebelum melanjutkan (Anda dapat menemukannya di pengaturan akun mobile legends Anda)')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('MLBB userId not entred')
-            return 0
-        }
-        if(!zoneId) {
-            setError('Anda harus memilih ID server Anda sebelum melanjutkan (Anda dapat menemukannya di pengaturan akun mobile legends Anda)')
-            setTimeout(()=>{
-                setError(false)
-            },4000)
-            actions.addErr('MLBB zoneId not entred')
+        if(!device) setDevice('Android')
+
+        if(!userId || !zoneId) {
+            setUser('Mobile Legends')
+            setStep_1(false)
+            setStep_2(true)
             return 0
         }
         setLoading(true)
@@ -89,12 +73,13 @@ const Indonesia = ({actions}) => {
     }
 
     const next_2 = async()=>{
-        actions.addBtn('second next button (after choosing diamonds)')
+        actions.addBtn('confirm button (after choosing diamonds)')
         if(!diamonds) {
             setError_2('Anda harus memilih jumlah Berlian yang ingin Anda dapatkan sebelum melanjutkan')
             setTimeout(()=>{
                 setError_2(false)
             },4000)
+            actions.addErr('no diamonds choosen')
             return 0
         }
         setStep_2(false)
@@ -107,7 +92,7 @@ const Indonesia = ({actions}) => {
             <h1 className="justify-center mb-3 text-lg font-bold">Gratis Mobile Legends Diamonds Generator</h1>
 
             {/* S T E P   1 */}
-            {success ? <Success msg={success} setStep_1={setStep_1} setStep_2={setStep_2} setSuccess={setSuccess} question={`apakah ${user} adalah nama pengguna akun Anda yang benar ?`} yes={'Ya'} no={'Tidak'}/> : 
+            {success ? <Success msg={success} actions={actions} setStep_1={setStep_1} setStep_2={setStep_2} setSuccess={setSuccess} question={`apakah ${user} adalah nama pengguna akun Anda yang benar ?`} yes={'Ya'} no={'Tidak'}/> : 
             loading ? <Fetching msg={'Mencari Username Mobile Legends Anda di Server ...'} /> : 
             error ? <Error msg={error}/> : 
             step_1 &&

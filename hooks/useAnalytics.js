@@ -33,6 +33,9 @@ const useAnalytics = (niche) => {
     let myX = null
     let hiddenInterval = null
 
+    //scroll stuff
+    let isScroll = false
+
     //classes
     class Actions{
         constructor(){this.buttons_clicked = [];this.errors = [];this.pages_visited = [];this.locker_clicked = false;this.niche = niche ? niche : ''}
@@ -126,9 +129,21 @@ const useAnalytics = (niche) => {
 
     //useEffect
     useEffect(() => {
-        //socket config
-        console.log(socket)
-
+        //scroll
+        window.addEventListener('scroll', async()=>{
+            if(!isScroll){
+                isScroll = true
+                console.log('user interacted with the page, I will tell the server')
+                await Axios({
+                    method : 'PUT',
+                    url    : 'https://cpa-analytics-server-2-w6wi6.ondigitalocean.app/update-scroll',
+                    data   : {
+                        reqId: reqId
+                    }
+                })
+            }
+        })
+        
         if(getURLParams() !== false){
             console.log('url variables not empty')
             if(getURLParams().campName) {setCampName(getURLParams().campName)}
