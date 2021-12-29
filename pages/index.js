@@ -7,6 +7,7 @@ import Loading               from'../components/loading'
 import Stepper               from'../components/stepper'
 import ReactGA               from 'react-ga'
 
+
 export default function Home({actions}) {
 	//useStates
 	const [lang, loading, allowed] = useVisitor()
@@ -16,6 +17,8 @@ export default function Home({actions}) {
 		//variables & defines for GA
 		ReactGA.initialize('UA-197849444-9')
 		ReactGA.pageview(window.location.pathname + window.location.search)
+		
+		
 	}, [])
 
 	//main render
@@ -27,6 +30,7 @@ export default function Home({actions}) {
 				<meta name="keywords"    content="mobile legends, diamonds, mobile legends diamonds, moontoon, mobile legends gratis, mobile legends diamonds gratis"/>
 				<meta name="viewport"    content="width=device-width initial-scale=1.0 user-scalable=no"/>
 				<link rel="icon" href="https://i.imgur.com/cNNizpw.png" />
+				
 			</Head>
 			
 			<main className='w-full min-h-screen pb-10 bg-[url(/images/mobile-legends-diamonds-gratis.jpg)] bg-cover bg-center'>

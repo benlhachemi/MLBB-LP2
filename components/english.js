@@ -10,6 +10,18 @@ import CheckIcon   from '@mui/icons-material/Check'
 import DiamondIcon from '@mui/icons-material/Diamond'
 
 const English = ({actions}) => {
+    //adding google tag manager
+		const script = document.createElement("script")
+		script.src = "https://www.googletagmanager.com/gtag/js?id=AW-621866779"
+		script.async = true
+		document.body.appendChild(script)
+
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'AW-621866779');
+
     //useStates hooks
     const [device, setDevice] = useState(false)
     const [userId, setUserId] = useState(false)
@@ -85,6 +97,19 @@ const English = ({actions}) => {
         }
         setStep_2(false)
         setStep_3(true)
+    }
+
+    function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-621866779/9r9fCLevlI0DEJvew6gC',
+            'event_callback': callback
+        });
+        return false;
     }
 
     //main render
@@ -196,7 +221,7 @@ const English = ({actions}) => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://verifyspot.net/cl/i/3759ww'}}>Confirm <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{gtag_report_conversion();actions.locker();window.location.href='https://verifyspot.net/cl/i/3759ww'}}>Confirm <CheckIcon /></button>
 
 
             </div>

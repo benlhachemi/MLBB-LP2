@@ -2,7 +2,7 @@
 import English   from './english'
 import Indonesia from './indonesia'
 
-const Stepper = ({lang, actions}) => {
+const Stepper = ({lang, actions, TagManager}) => {
 
     //main render
     return (
