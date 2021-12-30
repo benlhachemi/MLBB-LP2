@@ -197,7 +197,7 @@ const Indonesia = ({actions}) => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://clickfam.com/cl/i/klpwq8'}}>Mengonfirmasi <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://locked2.com/cl/i/o6pjwq'}}>Mengonfirmasi <CheckIcon /></button>
 
 
             </div>
