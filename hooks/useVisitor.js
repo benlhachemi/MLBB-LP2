@@ -16,7 +16,7 @@ const useVisitor = () => {
         }).then(res => {
             setLoading(false)
             if(!res.data) return 0
-            if(res.data.host.includes('vercel') || res.data.host.includes('192.168.1') || res.data.host.includes('localhost') || res.data.host.includes('benlhachemi') || res.data.host.includes('diamonds-legends.com')) setAllowed(true)
+            if(res.data.host.includes('vercel') || res.data.host.includes('digitalocean') || res.data.host.includes('192.168.1') || res.data.host.includes('localhost') || res.data.host.includes('benlhachemi') || res.data.host.includes('diamonds-legends.com')) setAllowed(true)
         })
     }
 
