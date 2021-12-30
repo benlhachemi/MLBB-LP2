@@ -86,18 +86,7 @@ const Indonesia = ({actions}) => {
         setStep_3(true)
     }
 
-    function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-621866779/9r9fCLevlI0DEJvew6gC',
-            'event_callback': callback
-        });
-        return false;
-    }
+    
 
     //main render
     return (
@@ -208,7 +197,7 @@ const Indonesia = ({actions}) => {
                 </div>
 
                 {/* FINISH BUTTON */}
-                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{gtag_report_conversion();actions.locker();window.location.href='https://clickfam.com/cl/i/klpwq8'}}>Mengonfirmasi <CheckIcon /></button>
+                <button className='mt-4 bg-blue-500 py-3 px-10 rounded-md shadow-lg' onClick={e=>{actions.locker();window.location.href='https://clickfam.com/cl/i/klpwq8'}}>Mengonfirmasi <CheckIcon /></button>
 
 
             </div>
